@@ -62,6 +62,10 @@ public class Player : MonoBehaviour
     /// Player Alive/Died
     /// </summary>
     public bool m_PlayerAlive = true;
+    /// <summary>
+    /// Mass
+    /// </summary>
+    public float m_Mass = 1;
 
     public Vector m_Forward;
 
@@ -103,8 +107,7 @@ public class Player : MonoBehaviour
             // Sphere
             m_Player = new Sphere(m_Position, m_Radius);
 
-            // Call Move
-            Movement();
+
             // If you hit the Platform, you WON!
             if (Collisions.SphereInSphere(m_Platform.m_Platform, m_Player))
             {
@@ -116,6 +119,12 @@ public class Player : MonoBehaviour
                 SceneManager.LoadScene(2);
             }
         }
+    }
+
+    private void FixedUpdate()
+    {
+        // Call Move
+        Movement();
     }
 
     // Player Movement

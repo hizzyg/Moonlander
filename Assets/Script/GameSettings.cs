@@ -31,7 +31,7 @@ public class GameSettings : MonoBehaviour
             + Mathf.Pow(m_Planet.m_Center.Y - m_Player.m_Position.Y, 2)
             + Mathf.Pow(m_Planet.m_Center.Z - m_Player.m_Position.Z, 2));
         // Set the Player Position (Translate or Rigidbody.Addforce)
-        m_Player.m_Position -= Matrix.TRS(new Vector(0, 0, 0), m_Player.m_Rotation, m_Player.m_Scale) * new Vector(1, 1, 0) * ((((9.81f) / distance) / distance) * distance * Time.deltaTime);
+        m_Player.m_Position -= Matrix.TRS(new Vector(0, 0, 0), m_Player.m_Rotation, m_Player.m_Scale) * new Vector(0, 1 * (9.81f / distance), 0) * Time.deltaTime;
         // Set the global transform.position
         m_Player.transform.position = Player.CONVERT_VECTOR_UNITY_TO_NORMAL(m_Player.m_Position);
     }

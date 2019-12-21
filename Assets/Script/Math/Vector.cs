@@ -29,6 +29,10 @@ namespace VektorenFormativ
         {
             return _a * -1;
         }
+        public static Vector operator -(Vector _a, float _b)
+        {
+            return new Vector(_a.X - _b, _a.Y - _b, _a.Z - _b);
+        }
 
         public static Vector operator *(Vector _a, float _b)
         {
@@ -42,7 +46,7 @@ namespace VektorenFormativ
 
         public override bool Equals(object _obj)
         {
-            Vector v = (Vector) _obj;
+            Vector v = (Vector)_obj;
             return X == v.X && Y == v.Y && Z == v.Z;
         }
 
